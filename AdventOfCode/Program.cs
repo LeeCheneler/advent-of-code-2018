@@ -10,10 +10,12 @@ namespace AdventOfCode
   {
     private static Stopwatch stopWatch;
 
-    static void RunWeek1()
+    static void RunDay1()
     {
+      Console.WriteLine("--- Day 1: Chronal Calibration ---");
+
       FrequencyCalibrator calibrator = new FrequencyCalibrator();
-      IEnumerable<int> frequencies = FrequencyCalibrator.ReadFrequencies();
+      IEnumerable<int> frequencies = FrequencyCalibrator.GetReadFrequencies();
 
       stopWatch = Stopwatch.StartNew();
       int sum = calibrator.Sum(frequencies);
@@ -26,10 +28,28 @@ namespace AdventOfCode
       Console.WriteLine($"First duplicate: {firstDuplicate} ({stopWatch.ElapsedMilliseconds}ms)");
     }
 
+    static void RunDay2()
+    {
+      Console.WriteLine("--- Day 2: Inventory Management System ---");
+
+      BoxScanner scanner = new BoxScanner();
+      IEnumerable<string> ids = BoxScanner.ReadBoxIds();
+
+      stopWatch = Stopwatch.StartNew();
+      int checksum = scanner.CalculateChecksum(ids);
+      stopWatch.Stop();
+      Console.WriteLine($"Checksum: {checksum} ({stopWatch.ElapsedMilliseconds}ms)");
+
+      stopWatch = Stopwatch.StartNew();
+      string commonLetters = scanner.FindCommonLetters(ids);
+      stopWatch.Stop();
+      Console.WriteLine($"Common letters: {commonLetters} ({stopWatch.ElapsedMilliseconds}ms)");
+    }
 
     static void Main(string[] args)
     {
-      RunWeek1();
+      RunDay1();
+      RunDay2();
     }
   }
 }

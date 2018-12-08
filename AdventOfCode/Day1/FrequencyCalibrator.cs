@@ -7,12 +7,15 @@ namespace AdventOfCode
 {
   public class FrequencyCalibrator
   {
-    public static IEnumerable<int> ReadFrequencies()
+    public static IEnumerable<int> GetReadFrequencies()
     {
-      return File.ReadAllLines("./Week1/frequencies.txt").Select((string f) => Int32.Parse(f));
+      return File.ReadAllLines("./Day1/frequencies.txt").Select((string f) => Int32.Parse(f));
     }
 
-    public int Sum(IEnumerable<int> frequencies) => frequencies.Sum();
+    public int Sum(IEnumerable<int> frequencies)
+    {
+      return frequencies.Sum();
+    }
 
     public int FindFirstDuplicate(IEnumerable<int> frequencies)
     {
