@@ -4,19 +4,21 @@ using System.Linq;
 
 namespace AdventOfCode
 {
-  public class BoxScanner
+  public class Challenge2 : IChallenge
   {
-    public static IEnumerable<string> ReadBoxIds()
+    public string Name { get { return "Day 2: Inventory Management System"; } }
+
+    public IEnumerable<string> ReadInput()
     {
-      return File.ReadAllLines("./Day2/box-ids.txt");
+      return File.ReadAllLines("./Inputs/2.txt");
     }
 
-    public int CalculateChecksum(IEnumerable<string> ids)
+    public string PartOne(IEnumerable<string> input)
     {
       int containsDouble = 0;
       int containsTriple = 0;
 
-      foreach (string id in ids)
+      foreach (string id in input)
       {
         Dictionary<char, int> letterCounts = new Dictionary<char, int>();
 
@@ -43,14 +45,16 @@ namespace AdventOfCode
         }
       }
 
-      return containsDouble * containsTriple;
+      return (containsDouble * containsTriple).ToString();
     }
 
-    public string FindCommonLetters(IEnumerable<string> ids)
+    public string PartTwo(IEnumerable<string> input)
     {
-      for (int i = 0; i < ids.First().Length; i++)
+      string match = null;
+
+      for (int i = 0; i < input.First().Length; i++)
       {
-        IEnumerable<string> matches = ids
+        IEnumerable<string> matches = input
           .Select(id => id.Remove(i, 1))
           .GroupBy(x => x)
           .Where(group => group.Count() > 1)
@@ -58,11 +62,11 @@ namespace AdventOfCode
 
         if (matches.Count() > 0)
         {
-          return matches.First();
+          match = matches.First();
         }
       }
 
-      return null;
+      return match;
     }
   }
 }
