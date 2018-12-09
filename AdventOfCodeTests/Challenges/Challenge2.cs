@@ -1,11 +1,9 @@
-using System;
-using Xunit;
 using AdventOfCode;
-using System.Collections.Generic;
+using Xunit;
 
 namespace AdventOfCodeTests
 {
-  public class BoxScannerTests
+  public class Challenge2Tests
   {
     private Challenge2 _challenge = new Challenge2();
 

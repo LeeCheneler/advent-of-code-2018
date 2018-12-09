@@ -1,12 +1,10 @@
-using System;
-using Xunit;
-using AdventOfCode;
-using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode;
+using Xunit;
 
 namespace AdventOfCodeTests
 {
-  public class FrequencyCalibratorTests
+  public class Challenge1Tests
   {
     private Challenge1 _challenge = new Challenge1();
 

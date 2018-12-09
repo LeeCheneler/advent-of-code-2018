@@ -13,7 +13,8 @@ namespace AdventOfCode
       ChallengeRunner runner = new ChallengeRunner();
       runner.Run(new List<IChallenge>() {
         new Challenge1(),
-        new Challenge2()
+        new Challenge2(),
+        new Challenge3()
       });
     }
   }
