@@ -31,7 +31,7 @@ namespace AdventOfCode
 
   public class Challenge3 : IChallenge
   {
-    public string Name { get { return "Day 3: "; } }
+    public string Name { get { return "Day 3: No Matter How You Slice It"; } }
 
     public IEnumerable<string> ReadInput()
     {
